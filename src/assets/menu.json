@@ -1,0 +1,30 @@
+{
+  "title": "Menu",
+  "items": [
+    {
+      "one": "Chicken Fried Rice",
+      "two": "Chicken Noodles",
+      "three": "Chilly Chicken",
+      "four": "Chicken 65",
+      "five": "Orange Juice"
+    }
+  ],
+  "quantity": [
+    {
+      "one": "50",
+      "two": "50",
+      "three": "50",
+      "four": "50",
+      "five": "50"
+    }
+  ],
+  "price": [
+    {
+      "one": "110",
+      "two": "120",
+      "three": "150",
+      "four": "140",
+      "five": "50"
+    }
+  ]
+}

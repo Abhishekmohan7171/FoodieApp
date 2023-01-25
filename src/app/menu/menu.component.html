@@ -1,11 +1,36 @@
-<div class="main-container">
-  <div class="food">
-
-  </div>
-  <div class="price">
-
-  </div>
-  <div class="quantity">
-    
-  </div>
+<div class="main-container justify-center flex overflow-y-scroll">
+  <ng-container *ngIf="data | async as data">
+    <table class="border-separate table-auto">
+      <thead>
+        <td>Dishes</td>
+        <td>Price</td>
+        <td>Quantity</td>
+      </thead>
+      <tr>
+        <td>{{data.items[0].one}}</td>
+        <td>{{data.price[0].one}}</td>
+        <td>{{data.quantity[0].one}}</td>
+      </tr>
+      <tr>
+        <td>{{data.items[0].two}}</td>
+        <td>{{data.price[0].two}}</td>
+        <td>{{data.quantity[0].two}}</td>
+      </tr>
+      <tr>
+        <td>{{data.items[0].three}}</td>
+        <td>{{data.price[0].three}}</td>
+        <td>{{data.quantity[0].three}}</td>
+      </tr>
+      <tr>
+        <td>{{data.items[0].four}}</td>
+        <td>{{data.price[0].four}}</td>
+        <td>{{data.quantity[0].four}}</td>
+      </tr>
+      <tr>
+        <td>{{data.items[0].five}}</td>
+        <td>{{data.price[0].five}}</td>
+        <td>{{data.quantity[0].five}}</td>
+      </tr>
+    </table>
+  </ng-container>
 </div>
