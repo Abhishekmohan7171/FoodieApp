@@ -19,6 +19,8 @@ export class AddItemsComponent {
 
   addToDb(){
     //console.log(this.addItems.value);
-    this.adb.database.ref('menu').push(this.addItems.value);
+    //this.adb.database.ref('menu').push(this.addItems.value);
+    const id = 'id'+ Math.random().toString(16).slice(8);
+    this.adb.list("/menu").set(id, this.addItems.value)
   }
 }
