@@ -11,6 +11,7 @@ import { AppShellComponent } from './app-shell/app-shell.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddItemsComponent } from './add-items/add-items.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 const firebaseConfig = {
@@ -30,7 +31,8 @@ const firebaseConfig = {
     HomeComponent,
     MenuComponent,
     AppShellComponent,
-    AddItemsComponent
+    AddItemsComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

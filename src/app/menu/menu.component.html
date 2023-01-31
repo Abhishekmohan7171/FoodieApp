@@ -1,4 +1,5 @@
-<div class="flex justify-center gap-10 text-xl text-gray-500 pt-6">
+<div class="flex justify-center gap-36 tablet:gap-20 phone:gap-10 text-xl text-gray-500 pt-6
+tablet:min-h-screen tablet:w-full phone:w-full">
   <div class="food">
     <p class="pb-6 font-bold">Dish</p>
     <div *ngFor="let food of foodData">
@@ -15,11 +16,11 @@
   </div>
   <div class="quantity">
     <p class="pb-6 font-bold">Quantity</p>
-    <div class="adder-component mb-8" *ngFor="let quantity of foodData">
+    <div class="adder-component mb-6" *ngFor="let quantity of foodData">
       <ng-container *ngIf="btn">
-        <button class="rounded px-1 pt-0 pb-0 text-xl font-semibold" (click)="increment()"> + </button>
+        <button class="rounded px-2 text-2xl font-semibold text-green-500" (click)="increment()"> + </button>
       {{count}}
-      <button class="rounded px-1 pt-0 pb-0 text-xl font-semibold" (click)="decrement()"> - </button>
+      <button class="rounded px-2 text-2xl font-semibold text-red-500" (click)="decrement()"> - </button>
       </ng-container>
       <ng-container *ngIf="less">
         <p class="text-red-400">Very few left!</p>

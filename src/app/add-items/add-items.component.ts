@@ -28,8 +28,8 @@ export class AddItemsComponent {
     setTimeout(()=>{
       this.fs.addToDatabase(this.addItems.value);
       this.status = false;
+      this.addItems.reset()
     },1500);
-
   }
 
   removeDb(){
