@@ -13,11 +13,11 @@ export class MenuComponent implements OnInit {
   data!: Observable<any>;
   foodData:any;
   db = getDatabase();
+  count = 0;
+  less = false;
+  over = false;
+  btn = true;
   constructor(private http: HttpClient, private adb: AngularFireDatabase, private fbs:FirebaseStorageService) {}
-
-  food:any;
-
-
 
   ngOnInit(): void {
     this.callFromDatabase()
@@ -28,7 +28,15 @@ export class MenuComponent implements OnInit {
     onValue(getFood, (v)=>{
       let data = v.val();
       this.foodData = Object.values(data);
-      console.log(this.foodData)
+      //console.log(this.foodData)
     })
+  }
+
+  increment(){
+    this.count++;
+  }
+
+  decrement(){
+    this.count--;
   }
 }

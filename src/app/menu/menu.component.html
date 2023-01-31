@@ -14,8 +14,19 @@
     </div>
   </div>
   <div class="quantity">
-    <div class="adder-component">
-      
+    <p class="pb-6 font-bold">Quantity</p>
+    <div class="adder-component mb-8" *ngFor="let quantity of foodData">
+      <ng-container *ngIf="btn">
+        <button class="rounded px-1 pt-0 pb-0 text-xl font-semibold" (click)="increment()"> + </button>
+      {{count}}
+      <button class="rounded px-1 pt-0 pb-0 text-xl font-semibold" (click)="decrement()"> - </button>
+      </ng-container>
+      <ng-container *ngIf="less">
+        <p class="text-red-400">Very few left!</p>
+      </ng-container>
+      <ng-container *ngIf="over">
+        <p class="text-red-400">Sold Out!</p>
+      </ng-container>
     </div>
   </div>
 </div>
