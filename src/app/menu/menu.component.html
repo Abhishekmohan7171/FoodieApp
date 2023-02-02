@@ -3,12 +3,14 @@
 >
   <div class="food">
     <ng-container *ngIf="data | async as foodData">
+
+        <form action="" [formGroup]="foodItems">
       <div *ngFor="let food of foodData; index as i" class="mb-6">
         <div class="flex justify-between gap-36">
           <p>{{ food["food"] }}</p>
           <p class="text-right">{{ food["price"] }}</p>
 
-          <div class="button">
+          <div class="button flex">
             <button
               class="rounded px-2 text-2xl font-semibold text-green-500"
               min="1"
@@ -16,7 +18,7 @@
             >
               +
             </button>
-            {{ food["qty"] }}
+            <input class="w-6" [formControlName]="food['food'].replace(' ', '').replace(' ', '')" [value]="food['qty']" />
             <button [disabled]="isDisabled"
               class="rounded px-2 text-2xl font-semibold text-red-500"
               (click)="decrement(i,food)"
@@ -26,6 +28,8 @@
           </div>
         </div>
       </div>
+    </form>
+
     </ng-container>
   </div>
   <!-- <div class="price">
@@ -36,7 +40,7 @@
     </div>
   </div> -->
 
-
+<!-- <button (click)="getVal()">Submit</button> -->
 </div>
 
 <app-footer class="bottom-0 fixed w-full"></app-footer>

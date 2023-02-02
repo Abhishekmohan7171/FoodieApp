@@ -4,6 +4,7 @@ import { map, Observable, tap } from 'rxjs';
 import {getDatabase,onValue, ref} from 'firebase/database';
 import { AngularFireDatabase, snapshotChanges } from '@angular/fire/compat/database';
 import { FirebaseStorageService } from '../firebase-storage.service';
+import { FormBuilder, FormControl, FormGroup, UntypedFormArray, UntypedFormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -19,20 +20,33 @@ export class MenuComponent implements OnInit {
   over = false;
   btn = true;
   isDisabled = false;
-  constructor(private http: HttpClient, private adb: AngularFireDatabase, private fbs:FirebaseStorageService) {}
+ foodItems!:FormGroup;
+ formObj:any ={};
+
+  constructor(private http: HttpClient, private adb: AngularFireDatabase, private fbs:FirebaseStorageService, private fb:FormBuilder) {}
 
   ngOnInit(): void {
     this.callFromDatabase()
+    console.log(this.formObj)
   }
 
   callFromDatabase(){
     const newItem:Observable<any> = this.adb.list("menu").valueChanges()
     this.data = newItem.pipe(map((v:any)=>{
       return v.map((a:any)=>{
+
         a['qty']=0
+        let formName = a.food.replace(' ', '').replace(' ','')
+        console.log(formName)
+        this.formObj[formName] = ['', Validators.required]
+        this.foodItems = this.fb.group({...this.formObj})
         return a
       })
     }))
+
+
+
+
 
     // const getFood = ref(this.db,"/menu");
     // onValue(getFood, (v)=>{
@@ -44,6 +58,11 @@ export class MenuComponent implements OnInit {
       //   return v
       // })
     // })
+  }
+
+  getVal(){
+    console.log(this.foodItems.value)
+
   }
 
   increment(i:any,food:any){
