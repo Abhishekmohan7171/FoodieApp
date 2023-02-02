@@ -1,8 +1,10 @@
 .input{
   margin-bottom: 30px;
-  margin-left: 10px;
   padding-top: 12px;
   border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 100px;
+  width: 100%;
 }
 .loader {
   display: flex;
