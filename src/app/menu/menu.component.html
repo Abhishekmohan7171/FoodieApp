@@ -1,13 +1,14 @@
 <div
   class="flex justify-center gap-36 tablet:gap-20 phone:gap-10 text-xl text-gray-500 pt-6 tablet:min-h-screen tablet:w-full phone:w-full"
 >
-  <div class="food">
+  <div class="food pb-10">
     <ng-container *ngIf="data | async as foodData">
       <div *ngFor="let food of foodData; index as i" class="mb-6">
         <div class="flex justify-between gap-36">
-          <p>{{ food["food"] }}</p>
-          <p class="text-right">{{ food["price"] }}</p>
-
+          <div>
+            <p>{{ food["food"] }}</p>
+            <p class="text-sm">Rs {{ food["price"] }}</p>
+          </div>
           <div class="button">
             <button
               class="rounded px-2 text-2xl font-semibold text-green-500"

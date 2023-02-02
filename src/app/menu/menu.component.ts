@@ -51,7 +51,7 @@ export class MenuComponent implements OnInit {
   }
 
   decrement(i:any,food:any){
-    if(food.qty === 0){
+    if(food.qty == 0){
       this.isDisabled = true;
     }else{
       food.qty -= 1;
