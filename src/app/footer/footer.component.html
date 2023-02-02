@@ -1,6 +1,10 @@
-<div class="footer w-full h-14 bg-slate-900 flex justify-center py-2">
+<div class="footer w-full h-14 bg-slate-900 flex justify-end py-2 gap-4 pr-6">
+  <div class="total text-white py-2">
+   Total: {{price}}
+  </div>
   <div>
-    <button class="bg-green-400  px-2 py-2 rounded text-white" routerLink="/checkout">
+    <button class="bg-green-400 hover:bg-green-300 px-2 py-2 rounded text-white"
+    onclick="addToDb()" routerLink="/checkout">
       Checkout
     </button>
   </div>
