@@ -19,6 +19,7 @@ export class MenuComponent implements OnInit {
   over = false;
   btn = true;
   isDisabled = false;
+  price = 350
   constructor(private http: HttpClient, private adb: AngularFireDatabase, private fbs:FirebaseStorageService) {}
 
   ngOnInit(): void {
@@ -33,7 +34,6 @@ export class MenuComponent implements OnInit {
         return a
       })
     }))
-
     // const getFood = ref(this.db,"/menu");
     // onValue(getFood, (v)=>{
     //   let data = v.val();
@@ -51,10 +51,8 @@ export class MenuComponent implements OnInit {
   }
 
   decrement(i:any,food:any){
-    if(food.qty == 0){
-      this.isDisabled = true;
-    }else{
-      food.qty -= 1;
+    if(food.qty > 0){
+      food.qty -= 1
     }
   }
 }
